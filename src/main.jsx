@@ -10,6 +10,7 @@ import Login from "./Components/Login/Login";
 import SignUp from "./Components/Login/SignUp";
 import FirebaseProvider from "./FirebaseProvider/FirebaseProvider";
 import  { Toaster } from 'react-hot-toast';
+import MyArtAndCraftList from "./Pages/MyArtAndCrafList/MyArtAndCraftList";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-art-craft-list",
-        element: <AddCraftItem></AddCraftItem>,
+        element: <MyArtAndCraftList></MyArtAndCraftList>,
+        loader: () => fetch("http://localhost:5000/artGallery")
+        
       },
       {
         path: "/login",
