@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../Hook/UseAuth";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyArtAndCraftList = () => {
     const [item, setItem] = useState([]);
@@ -15,7 +16,28 @@ const MyArtAndCraftList = () => {
             // console.log(data)
             setItem(data)
         })
-    }, [user])
+    }, [user, item])
+
+    // handle delete
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/delete/${id}`, {
+            method: "DELETE"
+        })
+        .then(res => res.json())
+        .then(data => {
+            // console.log(data)
+            if(data?.deletedCount > 0){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'User deleted successfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                  })
+            }
+        })
+       
+    }
+
   return (
     <div>
       <h2 className="text-3xl">My Art and craft list length:</h2>
@@ -27,7 +49,7 @@ const MyArtAndCraftList = () => {
                 <h2>{p.email}</h2>
                 <p>{p.price}</p>
                 <Link to={`/my-art-craft-list/${p._id}`} className="btn"><button>Update</button></Link>
-                <button className="btn mt-2">Delete</button>
+                <button onClick={()=>handleDelete(p._id)} className="btn mt-2">Delete</button>
             </div>)
         }
 
