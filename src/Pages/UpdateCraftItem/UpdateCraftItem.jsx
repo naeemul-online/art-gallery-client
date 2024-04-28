@@ -73,9 +73,7 @@ const UpdateCraftItem = () => {
                   })
               }
             
-        })
-
-        
+        })       
         
     }
    
@@ -87,37 +85,37 @@ const UpdateCraftItem = () => {
         <form onSubmit={handleUpdate}>
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Image URL</label>
-                <input defaultValue={craft.image} type="text" id="image" name="image" className="w-full border rounded-md  border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  required />
+                <input defaultValue={craft.image} type="text" id="image" name="image" className="w-full border rounded-md  border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"   />
             </div>
 
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Item Name</label>
-                <input defaultValue={craft.itemName} type="text" id="item_name" name="item_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" required />
+                <input defaultValue={craft.itemName} type="text" id="item_name" name="item_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  />
             </div>
 
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Subcategory Name</label>
-                <input defaultValue={craft.subcategoryName} type="text" id="subcategory_name" name="subcategory_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" required />
+                <input defaultValue={craft.subcategoryName} type="text" id="subcategory_name" name="subcategory_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  />
             </div>
 
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Short Description</label>
-                <textarea defaultValue={craft.shortDescription} id="short_description" name="short_description" rows="3" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" required></textarea>
+                <textarea defaultValue={craft.shortDescription} id="short_description" name="short_description" rows="3" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" ></textarea>
             </div>
 
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Price</label>
-                <input defaultValue={craft.price} type="number" id="price" name="price" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  required />
+                <input defaultValue={craft.price} type="number" id="price" name="price" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"   />
             </div>
 
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Rating</label>
-                <input defaultValue={craft.rating} type="number" id="rating" name="rating" min="0" max="5" step="0.1" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" required />
+                <input defaultValue={craft.rating} type="number" id="rating" name="rating" min="0" max="5" step="0.1" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  />
             </div>
 
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Customization</label>
-                <select id="customization" name="customization" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"required>
+                <select id="customization" name="customization" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200">
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                 </select>
@@ -125,7 +123,7 @@ const UpdateCraftItem = () => {
 
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Processing Time</label>
-                <input defaultValue={craft.processingTime} type="text" id="processing_time" name="processing_time" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"required />
+                <input defaultValue={craft.processingTime} type="text" id="processing_time" name="processing_time" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" />
             </div>
 
             <div className="mb-4">

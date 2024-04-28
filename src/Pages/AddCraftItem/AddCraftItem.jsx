@@ -55,7 +55,6 @@ const AddCraftItem = () => {
       })
       .then(res => res.json())
       .then(data => {
-        //   console.log(data);
           if(data?.insertedId){
             Swal.fire({
               title: 'Success!',
@@ -63,7 +62,6 @@ const AddCraftItem = () => {
               icon: 'success',
               confirmButtonText: 'OK'
             })
-            // toast.success("Craft item added Successfully")
             form.reset();
           }
       })
