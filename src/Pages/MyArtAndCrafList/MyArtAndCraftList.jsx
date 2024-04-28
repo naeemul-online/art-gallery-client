@@ -44,32 +44,74 @@ const MyArtAndCraftList = () => {
 
   return (
     <div>
-
       <div className="text-center mt-2 mb-32">
-      <select className="select select-bordered w-full max-w-xs">
-        <option disabled selected>
-          Landscape Painting
-        </option>
-        <option>Portrait Drawing</option>
-        <option>Watercolor Painting</option>
-        <option>Oil Painting</option>
-        <option>Charcoal Painting</option>
-        <option>Cartoon Drawing</option>
-      </select>
+        <select className="select select-bordered w-full max-w-xs">
+          <option disabled selected>
+            Landscape Painting
+          </option>
+          <option>Portrait Drawing</option>
+          <option>Watercolor Painting</option>
+          <option>Oil Painting</option>
+          <option>Charcoal Painting</option>
+          <option>Cartoon Drawing</option>
+        </select>
       </div>
 
-      <div className="w-2/3 mx-auto my-4 grid lg:grid-cols-3 gap-4">
+      <div className="w-2/3 mx-auto my-4 grid lg:grid-cols-3 md:grid-cols-2 gap-4">
         {item.map((p) => (
-          <div key={p._id} className=" card border p-4">
-            <h2>{p.itemName}</h2>
-            <h2>{p.email}</h2>
-            <p>{p.price}</p>
-            <Link to={`/my-art-craft-list/${p._id}`} className="btn">
-              <button>Update</button>
-            </Link>
-            <button onClick={() => handleDelete(p._id)} className="btn mt-2">
-              Delete
-            </button>
+          <div key={p._id} className=" card border p-4">          
+            <div className="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden m-4">
+              <img
+                className="w-full h-48 object-cover object-center"
+                src={p.image}
+                alt={p.itemName}
+              />
+              <div className="p-4">
+                <h2 className="text-gray-800 text-lg font-semibold">
+                  {p.itemName}
+                </h2>
+                <div className="flex justify-between mt-2">
+                  <span className="text-gray-600">${p.price}</span>
+                  <span className="text-gray-600">{p.rating} ⭐</span>
+                </div>
+                <div className="mt-2 flex justify-between">
+                  <span
+                    className={`text-sm font-semibold ${
+                      p.customization === "yes"
+                        ? "text-green-600"
+                        : "text-red-600"
+                    }`}
+                  >
+                    {p.customization === "yes"
+                      ? "Customizable"
+                      : "Not Customizable"}
+                  </span>
+                  <span
+                    className={`text-sm font-semibold ${
+                      p.stockStatus === "In Stock"
+                        ? "text-green-600"
+                        : "text-red-600"
+                    }`}
+                  >
+                    {p.stockStatus}
+                  </span>
+                </div>
+                <div className="mt-4 flex justify-between">
+                  <Link to={`/my-art-craft-list/${p._id}`}>
+                    <button className="text-sm text-blue-500 focus:outline-none mr-2">
+                      Update
+                    </button>
+                  </Link>
+
+                  <button
+                    onClick={() => handleDelete(p._id)}
+                    className="text-sm text-red-500 focus:outline-none"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         ))}
       </div>

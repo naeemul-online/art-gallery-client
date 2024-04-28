@@ -92,11 +92,22 @@ const UpdateCraftItem = () => {
                 <label  className="block text-gray-600 font-semibold mb-2">Item Name</label>
                 <input defaultValue={craft.itemName} type="text" id="item_name" name="item_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  />
             </div>
-
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Subcategory Name</label>
-                <input defaultValue={craft.subcategoryName} type="text" id="subcategory_name" name="subcategory_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  />
+                <select id="subcategory_name" name="subcategory_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  required>
+                    <option value="in_stock">Landscape Painting</option>
+                    <option value="in_stock">Portrait Drawing</option>
+                    <option value="in_stock">Watercolor Painting</option>
+                    <option value="in_stock">Oil Painting</option>
+                    <option value="in_stock">CharCoal Painting</option>
+                    <option value="in_stock">Cartoon Painting</option>
+                </select>
             </div>
+
+            {/* <div className="mb-4">
+                <label  className="block text-gray-600 font-semibold mb-2">Subcategory Name</label>
+                <input defaultValue={craft.subcategoryName} type="text" id="subcategory_name" name="subcategory_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  />
+            </div> */}
 
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Short Description</label>
