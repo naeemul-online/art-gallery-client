@@ -24,17 +24,23 @@ const MyArtAndCraftList = () => {
             method: "DELETE"
         })
         .then(res => res.json())
-        .then(data => {
-            // console.log(data)
-            if(data?.deletedCount > 0){
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'User deleted successfully',
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                  })
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be delete this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((data) => {
+            if (data?.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
             }
-        })
+          });
        
     }
 
