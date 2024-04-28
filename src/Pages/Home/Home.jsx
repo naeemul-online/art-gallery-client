@@ -16,6 +16,19 @@ const Home = () => {
       <CraftItemsSections></CraftItemsSections>
       <CraftItemsSections></CraftItemsSections>
       </div>
+
+      <div className="my-16">
+        <h2 className="lg:text-6xl text-3xl font-bold text-center ">Art and Craft Category Section</h2>
+      </div>
+
+      <div className="my-16">
+        <h2 className="lg:text-6xl text-3xl font-bold text-center ">Extra Section No - 1</h2>
+      </div>
+
+      <div className="my-16">
+        <h2 className="lg:text-6xl text-3xl font-bold text-center ">Extra Section No - 2</h2>
+      </div>
+
     </div>
   );
 };

@@ -53,7 +53,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/allCraftViewDetails/:id",
-        element: <AllCraftsViewDetails></AllCraftsViewDetails>
+        element: (
+          <PrivateRoute>
+            <AllCraftsViewDetails></AllCraftsViewDetails>
+          </PrivateRoute>
+        )
       },
      
       {
