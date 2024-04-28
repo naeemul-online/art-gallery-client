@@ -23,20 +23,20 @@ const Slider = () => {
         onSwiper={(swiper) => swiper}
         onSlideChange={() => console.log("slide change")}
       >
-        <SwiperSlide className="bg-red-400">
+        <SwiperSlide>
           <div>
             <img
               className="object-fit w-full lg:h-[600px]"
-              src="https://imgbb.host/images/GOAPk.jpeg"
-              alt=""
+              src="https://imgbb.host/images/7yXPZ.jpeg"
+              alt="slide-1"
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div>
             <img
-              src="https://imgbb.host/images/GO4xW.jpeg"
-              alt=""
+              src="https://imgbb.host/images/7yWRt.jpeg"
+              alt="slide-2"
               className="object-fit w-full lg:h-[600px]"
             />
           </div>
@@ -44,8 +44,8 @@ const Slider = () => {
         <SwiperSlide>
           <div>
             <img
-              src="https://imgbb.host/images/GO9VZ.jpeg"
-              alt=""
+              src="https://imgbb.host/images/7yiuk.jpeg"
+              alt="slide-3"
               className="object-fit w-full lg:h-[600px]"
             />
           </div>

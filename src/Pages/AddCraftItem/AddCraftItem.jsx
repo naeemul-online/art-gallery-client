@@ -70,7 +70,7 @@ const AddCraftItem = () => {
 
     }
     return (
-        <div className="max-w-md mx-auto bg-white p-8 rounded-md shadow-md">
+        <div className="max-w-lg mx-auto bg-white p-8 rounded-md shadow-md">
         <h2 className="text-2xl font-semibold mb-6">Add Product</h2>
         <form onSubmit={handleAddCraftItem} >
             <div className="mb-4">
@@ -83,15 +83,26 @@ const AddCraftItem = () => {
             </div>
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Subcategory Name</label>
-                <input type="text" id="subcategory_name" name="subcategory_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" required />
+                <select id="subcategory_name" name="subcategory_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  required>
+                    <option value="in_stock">Landscape Painting</option>
+                    <option value="in_stock">Portrait Drawing</option>
+                    <option value="in_stock">Watercolor Painting</option>
+                    <option value="in_stock">Oil Painting</option>
+                    <option value="in_stock">CharCoal Painting</option>
+                    <option value="in_stock">Cartoon Painting</option>
+                </select>
             </div>
+            {/* <div className="mb-4">
+                <label  className="block text-gray-600 font-semibold mb-2">Subcategory Name</label>
+                <input type="text" id="subcategory_name" name="subcategory_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" required />
+            </div> */}
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Short Description</label>
                 <textarea id="short_description" name="short_description" rows="3" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" required></textarea>
             </div>
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Price</label>
-                <input type="number" id="price" name="price" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  required />
+                <input type="text/number" id="price" name="price" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  required />
             </div>
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Rating</label>
@@ -123,7 +134,7 @@ const AddCraftItem = () => {
                 <label  className="block text-gray-600 font-semibold mb-2">User Name</label>
                 <input defaultValue={user.displayName} disabled type="text" id="user_name" name="user_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  required />
             </div>
-            <button type="submit" className="bg-indigo-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-indigo-600">Add</button>
+            <button type="submit" className="bg-indigo-500 text-white font-semibold px-4 py-2 w-full rounded-md hover:bg-indigo-600">Add Item</button>
         </form>
     </div>
     );

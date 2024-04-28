@@ -14,13 +14,13 @@ const Navbar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/all-arts-and-craft-items">All Art and Craft Items</Link>
+        <Link to="/all-arts-and-craft-items">All Art & Craft Items</Link>
       </li>
       <li>
         <Link to="/add-craft-item">Add Craft Item</Link>
       </li>
       <li>
-        <Link to="/my-art-craft-list">My Art and Craft List</Link>
+        <Link to="/my-art-craft-list">My Art & Craft List</Link>
       </li>
     </>
   );
@@ -45,7 +45,7 @@ const Navbar = () => {
   // theme controller function end
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 poppins-regular">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -66,7 +66,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[15]  shadow bg-base-100 rounded-box w-52 poppins-regular"
           >
             {navLinks}
           </ul>
@@ -80,20 +80,20 @@ const Navbar = () => {
             // src={logo}
             alt=""
           />
-          <h2 className="font-bold text-3xl hidden md:block">Art Gallery</h2>
+          <h2 className="hidden md:block font-bold w-64 playfair-display">Art Gallery</h2>
         </Link>
       </div>
 
       <div className="navbar">
         <div className=" hidden lg:flex justify-start">
-          <ul className="menu menu-horizontal px-1 text-xl">{navLinks}</ul>
+          <ul className="menu menu-horizontal">{navLinks}</ul>
         </div>
       </div>
 
       {/* Login and Register  theme controller  */}
       <div>
         {/* Theme controller */}
-        <label className="swap swap-rotate">
+        <label className="swap swap-rotate items-center">
           {/* this hidden checkbox controls the state */}
           <input onChange={handleToggle}
             type="checkbox"
@@ -103,7 +103,7 @@ const Navbar = () => {
 
           {/* sun icon */}
           <svg
-            className="swap-off fill-current w-10 h-10"
+            className="swap-off fill-current w-8 h-8"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -121,7 +121,7 @@ const Navbar = () => {
         </label>
       </div>
       {user ? (
-          <div className="text-xl">
+          <div className="">
             <div className=" flex items-center">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <button
@@ -140,7 +140,7 @@ const Navbar = () => {
 
               <button
                 onClick={logOut}
-                className="btn btn-sm  text-xl btn-ghost"
+                className="btn btn-sm   btn-ghost"
               >
                 Logout
               </button>
@@ -151,7 +151,7 @@ const Navbar = () => {
           </div>
         ) : (
           <Link to="/login">
-            <button className="btn btn-sm  btn-ghost text-xl">Login</button>
+            <button className="btn btn-sm  btn-ghost  poppins-regular">Login</button>
           </Link>
         )}
     </div>
