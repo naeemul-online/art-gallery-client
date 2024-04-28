@@ -9,13 +9,17 @@ import AddCraftItem from "./Pages/AddCraftItem/AddCraftItem";
 import Login from "./Components/Login/Login";
 import SignUp from "./Components/Login/SignUp";
 import FirebaseProvider from "./FirebaseProvider/FirebaseProvider";
-import  { Toaster } from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
 import MyArtAndCraftList from "./Pages/MyArtAndCrafList/MyArtAndCraftList";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import NotFound from "./PrivateRoute/NotFound";
+import UpdateCraftItem from "./Pages/UpdateCraftItem/UpdateCraftItem";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <NotFound></NotFound>,
     children: [
       {
         path: "/",
@@ -24,17 +28,29 @@ const router = createBrowserRouter([
       {
         path: "/all-arts-and-craft-items",
         element: <AllArtAndCraftItems></AllArtAndCraftItems>,
+       
       },
       {
         path: "/add-craft-item",
-        element: <AddCraftItem></AddCraftItem>,
+        element: (
+          <PrivateRoute>
+            <AddCraftItem></AddCraftItem>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-art-craft-list",
-        element: <MyArtAndCraftList></MyArtAndCraftList>,
-        loader: () => fetch("http://localhost:5000/artGallery")
-        
+        element: (
+          <PrivateRoute>
+            <MyArtAndCraftList></MyArtAndCraftList>
+          </PrivateRoute>
+        )
       },
+      {
+        path: "/my-art-craft-list/:id",
+        element: <UpdateCraftItem></UpdateCraftItem>
+      },
+     
       {
         path: "/login",
         element: <Login></Login>,

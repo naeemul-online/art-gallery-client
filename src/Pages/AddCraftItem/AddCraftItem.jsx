@@ -1,9 +1,20 @@
-import toast from "react-hot-toast";
+
+import Swal from "sweetalert2";
+import useAuth from "../../Hook/UseAuth";
+// import toast from "react-hot-toast";
 
 
 const AddCraftItem = () => {
+    const {user} = useAuth()
+    // console.log(user)
 
+
+
+    
+    
     const handleAddCraftItem = (e) => {
+
+        
         e.preventDefault();
         const form = e.target;
         const image = form.image.value;
@@ -15,10 +26,10 @@ const AddCraftItem = () => {
         const customization = form.customization.value;
         const processingTime = form.processing_time.value;
         const  stockStatus = form.stock_status.value;
-        const  userEmail = form.user_email.value;
-        const  userName = form.user_name.value;
+        const  email = user.email;
+        const  name = user.displayName;
 
-        const artGallery = {
+        const newCraftInfo = {
             image,
             itemName,
             subcategoryName,
@@ -28,32 +39,31 @@ const AddCraftItem = () => {
             customization,
             processingTime,
             stockStatus,
-            userEmail,
-            userName
+            email,
+            name
         }       
 
-        console.log(artGallery)
+        console.log(newCraftInfo)
 
         // send data to the server
-    fetch("http://localhost:5000/artGallery", {
+    fetch("http://localhost:5000/addCraftItem", {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(artGallery)
+        body: JSON.stringify(newCraftInfo)
       })
       .then(res => res.json())
       .then(data => {
-          console.log(data);
-          if(data.insertedId){
-            // alert('Coffee added successfully')
-            // Swal.fire({
-            //   title: 'Success!',
-            //   text: 'User added successfully',
-            //   icon: 'success',
-            //   confirmButtonText: 'OK'
-            // })
-            toast.success("Craft item added Successfully")
+        //   console.log(data);
+          if(data?.insertedId){
+            Swal.fire({
+              title: 'Success!',
+              text: 'User added successfully',
+              icon: 'success',
+              confirmButtonText: 'OK'
+            })
+            // toast.success("Craft item added Successfully")
             form.reset();
           }
       })
@@ -109,11 +119,11 @@ const AddCraftItem = () => {
             </div>
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">User Email</label>
-                <input type="email" id="user_email" name="user_email" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" required />
+                <input defaultValue={user.email} type="email" id="user_email" name="user_email" disabled className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" required />
             </div>
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">User Name</label>
-                <input type="text" id="user_name" name="user_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  required />
+                <input defaultValue={user.displayName} disabled type="text" id="user_name" name="user_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  required />
             </div>
             <button type="submit" className="bg-indigo-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-indigo-600">Add</button>
         </form>
