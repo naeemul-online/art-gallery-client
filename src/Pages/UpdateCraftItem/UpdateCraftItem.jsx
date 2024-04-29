@@ -12,7 +12,7 @@ const UpdateCraftItem = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/singleCraft/${id}`)
+        fetch(`https://a10-painting-drawing-server.vercel.app/singleCraft/${id}`)
         .then(res => res.json())
         .then(data => {
             setCraft(data)
@@ -47,7 +47,7 @@ const UpdateCraftItem = () => {
 
         console.log(newCraftInfo)
 
-        fetch(`http://localhost:5000/updateCraft/${id}`, {
+        fetch(`https://a10-painting-drawing-server.vercel.app/updateCraft/${id}`, {
             method: "PUT",
             headers: {
           "content-type": "application/json",

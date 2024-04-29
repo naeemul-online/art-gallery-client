@@ -10,7 +10,7 @@ const MyArtAndCraftList = () => {
   // console.log(user.email)
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myArtAndCraft/${user?.email}`)
+    fetch(`https://a10-painting-drawing-server.vercel.app/myArtAndCraft/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data)
@@ -20,7 +20,7 @@ const MyArtAndCraftList = () => {
 
   // handle delete
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/delete/${id}`, {
+    fetch(`https://a10-painting-drawing-server.vercel.app/delete/${id}`, {
       method: "DELETE",
     }).then((res) => res.json());
     Swal.fire({

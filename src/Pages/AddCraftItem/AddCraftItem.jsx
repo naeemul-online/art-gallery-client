@@ -46,7 +46,7 @@ const AddCraftItem = () => {
         console.log(newCraftInfo)
 
         // send data to the server
-    fetch("http://localhost:5000/addCraftItem", {
+    fetch("https://a10-painting-drawing-server.vercel.app//addCraftItem", {
         method: "POST",
         headers: {
           "content-type": "application/json",

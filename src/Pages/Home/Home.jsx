@@ -9,7 +9,7 @@ const Home = () => {
 
   // fetch data from server for craft item section
   useEffect(() => {
-    fetch("http://localhost:5000/allArtAndCraftItem/")
+    fetch("https://a10-painting-drawing-server.vercel.app/allArtAndCraftItem/")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data)
@@ -20,7 +20,7 @@ const Home = () => {
 
   // fetch data from server for category item section
   useEffect(() => {
-    fetch("http://localhost:5000/categoryItem/")
+    fetch("https://a10-painting-drawing-server.vercel.app/categoryItem/")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data)

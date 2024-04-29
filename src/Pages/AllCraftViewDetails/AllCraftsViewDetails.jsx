@@ -6,7 +6,7 @@ const AllCraftsViewDetails = () => {
     const [item, setItem] = useState({})
 
     useEffect(()=> {
-        fetch(`http://localhost:5000/allCraftViewDetails/${id}`)
+        fetch(`https://a10-painting-drawing-server.vercel.app/allCraftViewDetails/${id}`)
         .then(res => res.json())
         .then(data => {
             // console.log(data)
