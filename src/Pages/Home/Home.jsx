@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 // import CraftItemsSections from "../../Components/CraftItemsSection/CraftItemsSections";
 import Slider from "../../Slider/Slider";
 import { Link } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
+
 
 const Home = () => {
   const [item, setItem] = useState([]);
@@ -109,6 +111,7 @@ const Home = () => {
       <div className="">
         <h2 className="lg:text-6xl text-3xl font-bold text-center mt-16  playfair-display">
           The Art Gallery of San Francisco
+         
         </h2>
         <div className="hero min-h-screen ">
           <div className="hero-content flex-col lg:flex-row-reverse">
@@ -131,9 +134,22 @@ const Home = () => {
       </div>
 
       <div className="">
-        <h2 className="lg:text-6xl text-3xl font-bold text-center playfair-display ">
-          Events & Programs
-        </h2>
+        <h1 className="lg:text-6xl text-3xl font-bold text-center playfair-display">
+        Events  {' '}
+        <span style={{ color: 'black', fontWeight: 'bold' }}>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={['& Programs']}
+            loop={5}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </span>
+      </h1>
+        
         <div>
           <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row">

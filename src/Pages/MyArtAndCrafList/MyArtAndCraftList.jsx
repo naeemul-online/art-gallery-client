@@ -2,21 +2,39 @@ import { useEffect, useState } from "react";
 import useAuth from "../../Hook/UseAuth";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import Select from "react-select";
 
 const MyArtAndCraftList = () => {
   const [item, setItem] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const { user } = useAuth();
   // console.log(user.email)
 
   useEffect(() => {
-    fetch(`https://a10-painting-drawing-server.vercel.app/myArtAndCraft/${user?.email}`)
+    fetch(
+      `https://a10-painting-drawing-server.vercel.app/myArtAndCraft/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data)
         setItem(data);
       });
   }, [user, item]);
+
+  // category filter code
+  const categories = Array.from(
+    
+    new Set(item.map((res) => res.subcategoryName)));
+
+  const categoryOptions = categories.map((subcategoryName) => ({
+    value: subcategoryName,
+    label: subcategoryName,
+  }));
+
+  const filterItem = selectedCategory
+    ? item.filter((item) => item.subcategoryName === selectedCategory.value)
+    : item;
 
   // handle delete
   const handleDelete = (id) => {
@@ -42,24 +60,28 @@ const MyArtAndCraftList = () => {
     });
   };
 
+  // console.log("item",item)
+
   return (
     <div>
-      <div className="text-center mt-2 mb-32">
-        <select className="select select-bordered w-full max-w-xs">
-          <option disabled selected>
-            Landscape Painting
-          </option>
-          <option>Portrait Drawing</option>
-          <option>Watercolor Painting</option>
-          <option>Oil Painting</option>
-          <option>Charcoal Painting</option>
-          <option>Cartoon Drawing</option>
-        </select>
+      <div className=" flex justify-center items-center mt-2 mb-32">
+     
+
+        <Select
+        className="w-full max-w-xs"
+          options={categoryOptions}
+          isClearable
+          placeholder="Select a category"
+          onChange={(selectOption) => setSelectedCategory(selectOption)}
+          value={selectedCategory}
+        ></Select>
+
+       
       </div>
 
       <div className="w-2/3 mx-auto my-4 grid lg:grid-cols-3 md:grid-cols-2 gap-4">
-        {item.map((p) => (
-          <div key={p._id} className=" card border p-4">          
+        {filterItem.map((p) => (
+          <div key={p._id} className=" card border p-4">
             <div className="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden m-4">
               <img
                 className="w-full h-48 object-cover object-center"
@@ -95,6 +117,9 @@ const MyArtAndCraftList = () => {
                   >
                     {p.stockStatus}
                   </span>
+                </div>
+                <div className="mt-2">
+                  <h2 className="text-sm font-semibold"><strong>Category:</strong> {p.subcategoryName}</h2>
                 </div>
                 <div className="mt-4 flex justify-between">
                   <Link to={`/my-art-craft-list/${p._id}`}>

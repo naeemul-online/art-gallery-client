@@ -95,12 +95,12 @@ const UpdateCraftItem = () => {
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Subcategory Name</label>
                 <select id="subcategory_name" name="subcategory_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  required>
-                    <option value="in_stock">Landscape Painting</option>
-                    <option value="in_stock">Portrait Drawing</option>
-                    <option value="in_stock">Watercolor Painting</option>
-                    <option value="in_stock">Oil Painting</option>
-                    <option value="in_stock">CharCoal Painting</option>
-                    <option value="in_stock">Cartoon Painting</option>
+                    <option>Landscape Painting</option>
+                    <option>Portrait Drawing</option>
+                    <option>Watercolor Painting</option>
+                    <option>Oil Painting</option>
+                    <option>CharCoal Painting</option>
+                    <option>Cartoon Painting</option>
                 </select>
             </div>
 

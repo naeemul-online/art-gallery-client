@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../Hook/UseAuth";
+import { Typewriter } from 'react-simple-typewriter'
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
@@ -44,6 +45,7 @@ const Navbar = () => {
   }
   // theme controller function end
 
+
   return (
     <div className="navbar bg-base-100 poppins-regular">
       <div className="navbar-start">
@@ -80,7 +82,23 @@ const Navbar = () => {
             // src={logo}
             alt=""
           />
-          <h2 className="hidden md:block font-bold w-64 playfair-display">Art Gallery</h2>
+          <h1 className="hidden md:block font-bold w-64 playfair-display">
+          Art {' '}
+        <span style={{ color: 'black', fontWeight: 'bold' }}>
+          {/* Style will be inherited from the parent element */}
+          <Typewriter
+            words={['Gallery']}
+            loop={5}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </span>
+      </h1>
+
+
         </Link>
       </div>
 
