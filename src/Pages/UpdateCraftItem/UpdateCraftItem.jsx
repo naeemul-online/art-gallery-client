@@ -104,11 +104,6 @@ const UpdateCraftItem = () => {
                 </select>
             </div>
 
-            {/* <div className="mb-4">
-                <label  className="block text-gray-600 font-semibold mb-2">Subcategory Name</label>
-                <input defaultValue={craft.subcategoryName} type="text" id="subcategory_name" name="subcategory_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  />
-            </div> */}
-
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Short Description</label>
                 <textarea defaultValue={craft.shortDescription} id="short_description" name="short_description" rows="3" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" ></textarea>

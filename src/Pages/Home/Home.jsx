@@ -1,7 +1,33 @@
-import CraftItemsSections from "../../Components/CraftItemsSection/CraftItemsSections";
+import { useEffect, useState } from "react";
+// import CraftItemsSections from "../../Components/CraftItemsSection/CraftItemsSections";
 import Slider from "../../Slider/Slider";
+import { Link } from "react-router-dom";
 
 const Home = () => {
+  const [item, setItem] = useState([]);
+  const [category, setCategory] = useState([]);
+
+  // fetch data from server for craft item section
+  useEffect(() => {
+    fetch("http://localhost:5000/allArtAndCraftItem/")
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data)
+        setItem(data);
+      });
+  }, [item]);
+  // console.log(item)
+
+  // fetch data from server for category item section
+  useEffect(() => {
+    fetch("http://localhost:5000/categoryItem/")
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data)
+        setCategory(data);
+      });
+  }, []);
+
   return (
     <div className="">
       <Slider></Slider>
@@ -10,20 +36,74 @@ const Home = () => {
           Craft Items Section
         </h2>
       </div>
-      <div className="grid md:grid-cols-3 gap-8 my-8 px-4 w-3/4 mx-auto">
+      {/* <div className="grid md:grid-cols-3 gap-8 my-8 px-4 w-3/4 mx-auto">
         <CraftItemsSections></CraftItemsSections>
         <CraftItemsSections></CraftItemsSections>
         <CraftItemsSections></CraftItemsSections>
         <CraftItemsSections></CraftItemsSections>
         <CraftItemsSections></CraftItemsSections>
         <CraftItemsSections></CraftItemsSections>
+      </div> */}
+
+      <div className="w-2/3 mx-auto mt-16 grid lg:grid-cols-3 md:grid-cols-2 gap-4 min-h-screen">
+        {item.slice(0, 6).map((p) => (
+          <div key={p._id} className=" card border p-4">
+            <div className="max-w-xs  bg-white shadow-lg rounded-lg overflow-hidden m-4">
+              <img
+                className="w-full h-48 object-cover object-center"
+                src={p.image}
+                alt={p.itemName}
+              />
+              <div className="p-4">
+                <h2 className="text-gray-800 text-lg font-semibold">
+                  {p.itemName}
+                </h2>
+                <div className="flex justify-between mt-2">
+                  <span className="text-gray-600">${p.price}</span>
+                  <span className="text-gray-600">{p.rating} ⭐</span>
+                </div>
+                <div className="mt-4 flex justify-between">
+                  <Link to={`/allCraftViewDetails/${p._id}`}>
+                    <button className="text-sm text-blue-500 focus:outline-none mr-2">
+                      View Details
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
       <div className="my-16">
-        <h2 className="lg:text-6xl text-3xl font-bold text-center playfair-display ">
+        <h2 className="lg:text-6xl text-3xl font-bold text-center playfair-display my-16 ">
           Art and Craft Category Section
         </h2>
-        <div></div>
+
+        <div className="w-2/3 mx-auto  grid lg:grid-cols-3 md:grid-cols-2 gap-4">
+          {category.map((p) => (
+            <div key={p._id}>
+              <div className="max-w-xs  bg-white shadow-lg rounded-lg overflow-hidden m-4">
+                <img
+                  className="w-full h-48 object-cover object-center"
+                  src={p.image}
+                  alt={p.origins}
+                />
+                <div className="p-4 text-center">
+                  <h2 className="text-gray-800">
+                    {p.origins}
+                  </h2>
+                  <h2 className="text-gray-800 text-lg font-bold">
+                    {p.subcategoryName}
+                  </h2>
+                  <h2 className="text-gray-800">
+                    <q>{p.key_elements}</q>                    
+                  </h2>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="">

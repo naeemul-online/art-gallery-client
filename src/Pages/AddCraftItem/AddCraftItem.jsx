@@ -92,10 +92,6 @@ const AddCraftItem = () => {
                     <option value="in_stock">Cartoon Painting</option>
                 </select>
             </div>
-            {/* <div className="mb-4">
-                <label  className="block text-gray-600 font-semibold mb-2">Subcategory Name</label>
-                <input type="text" id="subcategory_name" name="subcategory_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" required />
-            </div> */}
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">Short Description</label>
                 <textarea id="short_description" name="short_description" rows="3" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" required></textarea>
@@ -128,11 +124,11 @@ const AddCraftItem = () => {
             </div>
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">User Email</label>
-                <input defaultValue={user.email} type="email" id="user_email" name="user_email" disabled className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" required />
+                <input defaultValue={user.email} type="email" id="user_email" name="user_email" readOnly className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200" required />
             </div>
             <div className="mb-4">
                 <label  className="block text-gray-600 font-semibold mb-2">User Name</label>
-                <input defaultValue={user.displayName} disabled type="text" id="user_name" name="user_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  required />
+                <input defaultValue={user.displayName} readOnly type="text" id="user_name" name="user_name" className="w-full border rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200"  required />
             </div>
             <button type="submit" className="bg-indigo-500 text-white font-semibold px-4 py-2 w-full rounded-md hover:bg-indigo-600">Add Item</button>
         </form>

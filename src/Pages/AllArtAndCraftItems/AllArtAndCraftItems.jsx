@@ -37,12 +37,6 @@ const AllArtAndCraftItems = () => {
                </div>
              </div>
            </div>
-
-        //   <div key={p._id} className="card p-4 border">
-        //     <h2>name: {p.name}</h2>
-        //     <h2>email: {p.email}</h2>
-        //     <Link to={`/allCraftViewDetails/${p._id}`}><button className="btn">View Details</button></Link>
-        //   </div>
         ))}
       </div>
   );
