@@ -31,7 +31,7 @@ const Home = () => {
   return (
     <div className="">
       <Slider></Slider>
-      <div className="my-16">
+      <div className="my-16 ">
         <h2 className="lg:text-6xl text-3xl font-bold text-center playfair-display ">
           Craft Items Section
         </h2>
@@ -75,7 +75,7 @@ const Home = () => {
         ))}
       </div>
 
-      <div className="my-16">
+      <div className="my-16 min-h-screen ">
         <h2 className="lg:text-6xl text-3xl font-bold text-center playfair-display my-16 ">
           Art and Craft Category Section
         </h2>
@@ -83,7 +83,7 @@ const Home = () => {
         <div className="w-2/3 mx-auto  grid lg:grid-cols-3 md:grid-cols-2 gap-4">
           {category.map((p) => (
             <div key={p._id}>
-              <div className="max-w-xs  bg-white shadow-lg rounded-lg overflow-hidden m-4">
+              <div className="max-w-xs bg-white h-full justify-between flex flex-col shadow-lg rounded-lg overflow-hidden m-4">
                 <img
                   className="w-full h-48 object-cover object-center"
                   src={p.image}
@@ -107,7 +107,7 @@ const Home = () => {
       </div>
 
       <div className="">
-        <h2 className="lg:text-6xl text-3xl font-bold text-center  playfair-display">
+        <h2 className="lg:text-6xl text-3xl font-bold text-center mt-16  playfair-display">
           The Art Gallery of San Francisco
         </h2>
         <div className="hero min-h-screen ">
