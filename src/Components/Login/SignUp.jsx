@@ -58,7 +58,7 @@ const onSubmit = (data) => {
 
   //   
     return (
-        <div className="flex justify-center items-center bg-base-200">    
+        <div className="flex justify-center items-center">    
         <div className=" flex-col">
           <div className="text-center lg:text-left">
             <h1 className="text-3xl font-bold text-center">Register now!</h1>
